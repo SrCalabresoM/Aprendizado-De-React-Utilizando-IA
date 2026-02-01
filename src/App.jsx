@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Botao from "./components/Botao";
 
 function App() {
   const [contador, setContador] = useState(0);
@@ -6,8 +7,8 @@ function App() {
   return (
     <div>
       <h1>Contador: {contador}</h1>
-      <button onClick={() => setContador(contador + 1)}>+</button>
-      <button onClick={() => setContador(contador - 1)}>-</button>
+      <Botao texto="+" onClick={() => setContador(contador + 1)} />
+      <Botao texto="-" onClick={() => setContador(contador - 1)} />
     </div>
   );
 }
