@@ -1,14 +1,41 @@
 import { useState } from "react";
-
+import ListaTarefas from "./components/ListaTarefas";
+import FormTarefa from "./components/FormTarefa";
 
 function App() {
-  const [tarefas, setTarefas] = useState(["Estudar React", "Aprender Git"]);
+  const [tarefas, setTarefas] = useState([
+    { texto: "Estudar React", concluida: false },
+    { texto: "Aprender Git", concluida: false }
+  ]);
+
   const [novaTarefa, setNovaTarefa] = useState("");
 
+  function alternarTarefa(index) {
+    const novasTarefas = tarefas.map((tarefa, i) => {
+      if (i === index) {
+        return {
+          ...tarefa,
+          concluida: !tarefa.concluida
+        };
+      }
+      return tarefa;
+    });
+
+    setTarefas(novasTarefas);
+  }
+
   function adicionarTarefa() {
-    setTarefas([...tarefas, novaTarefa]);
+    if (novaTarefa.trim() === "") return;
+
+    const nova = {
+      texto: novaTarefa,
+      concluida: false
+    };
+
+    setTarefas([...tarefas, nova]);
     setNovaTarefa("");
   }
+
   function limparTarefas() {
     setTarefas([]);
     setNovaTarefa("");
@@ -18,17 +45,18 @@ function App() {
     <div>
       <h1>Minhas Tarefas</h1>
 
-      <input
-        value={novaTarefa}
-        onChange={(e) => setNovaTarefa(e.target.value)}
+      <FormTarefa
+        novaTarefa={novaTarefa}
+        setNovaTarefa={setNovaTarefa}
+        adicionarTarefa={adicionarTarefa}
       />
 
-      <button onClick={adicionarTarefa}>Adicionar</button>
       <button onClick={limparTarefas}>Limpar Tarefas</button>
-      {tarefas.length === 0 && <p>Nenhuma tarefa ainda</p>}
-      {tarefas.map((tarefa, index) => (
-        <p key={index}>{tarefa}</p>
-      ))}
+
+      <ListaTarefas
+        tarefas={tarefas}
+        alternarTarefa={alternarTarefa}
+      />
     </div>
   );
 }
