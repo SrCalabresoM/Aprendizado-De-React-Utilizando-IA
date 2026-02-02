@@ -1,12 +1,27 @@
-function FormTarefa({ novaTarefa, setNovaTarefa, adicionarTarefa }) {
+import { useRef } from "react";
+
+function FormTarefa({ adicionarTarefa }) {
+
+  const inputRef = useRef(null);
+
+  function enviar() {
+    const texto = inputRef.current.value;
+
+    if (texto.trim() === "") return;
+
+    adicionarTarefa(texto);
+
+    inputRef.current.value = "";
+    inputRef.current.focus();
+  }
+
   return (
     <div>
-      <input
-        value={novaTarefa}
-        onChange={(e) => setNovaTarefa(e.target.value)}
-      />
+      <input ref={inputRef} />
 
-      <button onClick={adicionarTarefa}>Adicionar</button>
+      <button onClick={enviar}>
+        Adicionar
+      </button>
     </div>
   );
 }
