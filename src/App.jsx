@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import ListaTarefas from "./components/ListaTarefas";
 import FormTarefa from "./components/FormTarefa";
+import Card from "./components/Card";
+import Titulo from "./components/Titulo";
 
 function App() {
 
@@ -53,21 +55,25 @@ function apagarConcluidas() {
 
   return (
     <div>
+      <Titulo>
       <h1>Minhas Tarefas</h1>
-
+      </Titulo>
+      <Card>
       <FormTarefa
         novaTarefa={novaTarefa}
         setNovaTarefa={setNovaTarefa}
         adicionarTarefa={adicionarTarefa}
       />
-
+      </Card>
       <button onClick={limparTarefas}>Limpar Tarefas</button>
       <button onClick={apagarConcluidas}>Apagar Concluídas</button>
 
+      <Card>
       <ListaTarefas
         tarefas={tarefas}
         alternarTarefa={alternarTarefa}
       />
+      </Card>
     </div>
   );
 }
