@@ -1,12 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ListaTarefas from "./components/ListaTarefas";
 import FormTarefa from "./components/FormTarefa";
 
 function App() {
-  const [tarefas, setTarefas] = useState([
-    { texto: "Estudar React", concluida: false },
-    { texto: "Aprender Git", concluida: false }
-  ]);
+
+  const [tarefas, setTarefas] = useState(() => {
+  const salvas = localStorage.getItem("tarefas");
+  return salvas ? JSON.parse(salvas) : [];
+});
+
+  useEffect(() => {
+  localStorage.setItem("tarefas", JSON.stringify(tarefas));
+}, [tarefas]);
 
   const [novaTarefa, setNovaTarefa] = useState("");
 
@@ -23,6 +28,11 @@ function App() {
 
     setTarefas(novasTarefas);
   }
+
+function apagarConcluidas() {
+  setTarefas(tarefas.filter(t => !t.concluida));
+}
+
 
   function adicionarTarefa() {
     if (novaTarefa.trim() === "") return;
@@ -52,6 +62,7 @@ function App() {
       />
 
       <button onClick={limparTarefas}>Limpar Tarefas</button>
+      <button onClick={apagarConcluidas}>Apagar Concluídas</button>
 
       <ListaTarefas
         tarefas={tarefas}
