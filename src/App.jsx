@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Sobre from "./pages/Sobre";
 import Tarefas from "./pages/Tarefas";
 import ApiExemplo from "./pages/ApiExemplo";
+import Cadastro from "./pages/Cadastro";
 import { TarefasProvider } from "./context/TarefasContext";
 
 function App() {
@@ -17,7 +18,8 @@ function App() {
           <Link to="/">Home</Link> |{" "}
           <Link to="/tarefas">Tarefas</Link> |{" "}
           <Link to="/sobre">Sobre</Link> |{" "}
-          <Link to="/api">API</Link>
+          <Link to="/api">API</Link> |{" "}
+          <Link to="/cadastro">Cadastro</Link>
         </nav>
 
         <Routes>
@@ -25,6 +27,7 @@ function App() {
           <Route path="/tarefas" element={<Tarefas />} />
           <Route path="/sobre" element={<Sobre />} />
           <Route path="/api" element={<ApiExemplo />} />
+          <Route path="/cadastro" element={<Cadastro />} />
             
         </Routes>
       </BrowserRouter>
