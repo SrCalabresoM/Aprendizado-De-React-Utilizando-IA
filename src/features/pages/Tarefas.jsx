@@ -1,7 +1,7 @@
-import ListaTarefas from "../components/ListaTarefas";
-import FormTarefa from "../components/FormTarefa";
+import ListaTarefas from "@/shared/components/ListaTarefas";
+import FormTarefa from "@/shared/components/FormTarefa";
 import { useContext } from "react";
-import { TarefasContext } from "../context/TarefasContext";
+import { TarefasContext } from "@/shared/context/TarefasContext";
 
 function Tarefas() {
   const { tarefas, setTarefas } = useContext(TarefasContext);

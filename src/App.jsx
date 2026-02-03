@@ -1,12 +1,8 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-import Home from "./pages/Home";
-import Sobre from "./pages/Sobre";
-import Tarefas from "./pages/Tarefas";
-import ApiExemplo from "./pages/ApiExemplo";
-import Cadastro from "./pages/Cadastro";
-import { TarefasProvider } from "./context/TarefasContext";
+import { TarefasProvider } from "@/shared/context/TarefasContext";
+import AppRoutes from "@/routes/AppRoutes";
 
 function App() {
   const [tarefas, setTarefas] = useState([]);
@@ -22,14 +18,7 @@ function App() {
           <Link to="/cadastro">Cadastro</Link>
         </nav>
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/tarefas" element={<Tarefas />} />
-          <Route path="/sobre" element={<Sobre />} />
-          <Route path="/api" element={<ApiExemplo />} />
-          <Route path="/cadastro" element={<Cadastro />} />
-            
-        </Routes>
+        <AppRoutes />
       </BrowserRouter>
     </TarefasProvider>
   );

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useForm from "../hooks/useForm";
+import useForm from "@/shared/hooks/useForm";
 
 function Cadastro() {
   const { valores, onChange } = useForm({

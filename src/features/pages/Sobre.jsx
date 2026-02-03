@@ -1,4 +1,4 @@
-import Titulo from "../components/Titulo";
+import Titulo from "@/shared/components/Titulo";
 
 function Sobre() {
   return (
