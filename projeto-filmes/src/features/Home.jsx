@@ -1,10 +1,11 @@
 import Titulo from "../shared/Titulo"
+import logo from "../assets/logo_filmslist.png"
 
 export default function Home() {
   return (
     <div>
       <div className="container-alinhado">
-      <Titulo>Seja bem-vindo ao Film’s List <img src="/logo_filmslist.png" alt="Logo do Film's List" style={{ width: "40px"}} /></Titulo>
+      <Titulo>Seja bem-vindo ao Film’s List <img src={logo} alt="Logo do Film's List" style={{ width: "40px"}} /></Titulo>
 </div>
       <p style={{
         maxWidth: "520px",
