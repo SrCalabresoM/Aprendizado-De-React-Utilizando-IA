@@ -1,0 +1,455 @@
+:root {
+  /* Paleta de Cores e Variáveis */
+  --bg-color: #242424;
+  --accent-color: #646cff;
+  --accent-hover: #7b83ff;
+  --text-main: rgba(255, 255, 255, 0.95);
+  --text-muted: rgba(255, 255, 255, 0.6);
+  
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6; /* Aumentado para melhor leitura */
+  font-weight: 400;
+  color-scheme: dark;
+  color: var(--text-main);
+  background-color: var(--bg-color);
+  
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centralização mais robusta */
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  align-items: flex-start !important; 
+  padding-top: 100px;
+}
+
+/* Links com estilo moderno */
+a {
+  font-weight: 600;
+  color: var(--accent-color);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--accent-hover);
+  transition: width 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+/* Tipografia Refinada */
+h1 {
+  font-size: clamp(2rem, 8vw, 3.5rem); /* Tamanho responsivo */
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5em;
+  margin-top: 20px;
+  background: linear-gradient(to bottom, #fff, #aaa); /* Degradê sutil no texto */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  width: 100%;
+  text-align: center;
+}
+
+/* O botão que já aprovamos, mantido e integrado */
+button {
+  all: unset;
+  cursor: pointer;
+  display: inline-flex; /* Flex para alinhar ícones se precisar */
+  align-items: center;
+  justify-content: center;
+  
+  background: linear-gradient(145deg, #323232, #2a2a2a);
+  color: #e1e1e1;
+  padding: 0.8em 1.8em;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button:hover {
+  background: #3a3a3a;
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(100, 108, 255, 0.2);
+  color: #fff;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(1);
+}
+
+/* Container que agrupa o texto e o input */
+span {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  max-width: 300px; /* Ajuste conforme necessário */
+}
+
+/* O parágrafo agindo como Label */
+span p {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase; /* Dá um ar mais técnico/clean */
+  padding-left: 4px;
+}
+
+/* O Campo de Entrada */
+input {
+  all: unset; /* Limpa o estilo padrão */
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 12px 16px;
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra interna para profundidade */
+}
+
+/* Efeito de Foco (Highlight) */
+input:focus {
+  background-color: rgba(255, 255, 255, 0.06);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 4px rgba(100, 108, 255, 0.1), 
+              inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo do Placeholder */
+input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.9rem;
+}
+
+/* Estado de Hover sutil */
+input:hover:not(:focus) {
+  border-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Classe para containers de texto ou elementos individuais */
+.text-content {
+  max-width: 65ch; /* Limita a largura para o olho não cansar ao ler */
+  line-height: 1.6;
+  color: var(--text-main);
+}
+
+/* Parágrafos padrão */
+p, .text-p {
+  margin-bottom: 1.25rem;
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.85); /* Branco suave */
+  font-weight: 400;
+}
+
+/* Textos secundários ou legendas */
+.text-muted {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.4;
+}
+
+/* Destaque sutil dentro do texto (negrito) */
+strong, b {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Citação ou bloco de destaque */
+blockquote {
+  margin: 2rem 0;
+  padding: 0.5rem 1.5rem;
+  border-left: 3px solid var(--accent-color);
+  background: rgba(100, 108, 255, 0.05);
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Pequenos badges/etiquetas de texto */
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent-color);
+  vertical-align: middle;
+}
+
+body {
+  align-items: flex-start !important; 
+  padding-top: 5vh;
+}
+
+
+a[title] {
+  margin: 0 15px;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+a[title]:hover {
+  background: rgba(100, 108, 255, 0.1);
+  border-color: #646cff;
+  box-shadow: 0 0 15px rgba(100, 108, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+
+h1 {
+  margin-top: 60px; 
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 40px;
+  width: 100%;
+  text-align: center;
+}
+
+
+body > div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-color: #f5f5f7;
+    --text-main: #1d1d1f;
+    --text-muted: #6e6e73;
+  }
+  h1 {
+    background: none;
+    -webkit-text-fill-color: initial;
+    color: #1d1d1f;
+  }
+  button {
+    background: #fff;
+    color: #1d1d1f;
+    border: 1px solid rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  }
+}
+
+.favorito {
+  all: unset !important;
+  cursor: pointer;
+  padding-left: 15px !important;
+  color: #fff675 !important;
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  background: rgba(36, 36, 36, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  z-index: 9999;
+  box-sizing: border-box;
+  color: rgba(255, 255, 255, 0.1);
+}
+
+nav a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.2s ease;
+}
+
+nav a:hover {
+  color: #646cff;
+  text-shadow: 0 0 15px rgba(100, 108, 255, 0.4);
+}
+
+.catalog-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.movie-card {
+  background: #2a2a2a;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.movie-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  border-color: rgba(100, 108, 255, 0.3);
+}
+
+.movie-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+.movie-poster {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  background-color: #1a1a1a;
+  display: block;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.movie-info {
+  padding: 15px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.movie-info h2 {
+  font-size: 1rem;
+  margin: 0;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.movie-info p {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 5px;
+}
+
+form {
+  background: #2a2a2a;
+  padding: 2.5rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  width: 100%;
+  max-width: 400px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+form span {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+form span p {
+  margin: 0;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+form br {
+  display: none;
+}
+
+.error-message {
+  color: #ff4d4d;
+  font-size: 0.75rem;
+  font-style: italic;
+  margin-top: -0.8rem;
+  padding-left: 5px;
+}
+
+.container-alinhado {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.container-alinhado p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #e8e8e8;
+  border-left: 5px solid #646cff;
+  padding-left: 15px;
+  line-height: 1.2;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  min-height: 100%;
+}
+
+.container-alinhado img {
+  display: block;
+  flex-shrink: 0;
+  padding-left: 20px;
+}
