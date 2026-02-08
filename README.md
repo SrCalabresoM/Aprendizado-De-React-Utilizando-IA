@@ -62,3 +62,7 @@ Na estrutura desse repositório você encontrará tanto o projeto gerado durante
        ├── src  
        ├── public  
        └── package.json  
+
+Desenvolvido por: João Pedro Iannoni Milaré/ SrCalabresoM
+Film´s List: https://filmslists.vercel.app/
+
