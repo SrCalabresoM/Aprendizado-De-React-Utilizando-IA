@@ -172,9 +172,9 @@ button.favorito {
   cursor: pointer !important;  /* ainda clicável */
   color: #fff675 !important;   /* amarelo sempre */
   background: none !important; /* sem background */
-  padding: 0 !important;       /* sem padding extra */
   border: none !important;     /* sem borda */
   box-shadow: none !important; /* sem sombra */
+  padding-left: 15px !important;
   font-size: inherit !important;
   font-family: inherit !important;
 }
