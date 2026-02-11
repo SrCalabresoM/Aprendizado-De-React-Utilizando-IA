@@ -29,6 +29,7 @@ body {
   box-sizing: border-box;
   align-items: flex-start !important; 
   padding-top: 100px;
+  background-color: #202124;
 }
 
 /* Links com estilo moderno */
