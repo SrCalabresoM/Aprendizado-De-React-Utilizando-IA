@@ -1,13 +1,13 @@
 :root {
   /* Paleta de Cores e Variáveis */
-  --bg-color: #242424;
+  --bg-color: #242424;        
   --accent-color: #646cff;
   --accent-hover: #7b83ff;
-  --text-main: rgba(255, 255, 255, 0.95);
+  --text-main: #ffffff;         
   --text-muted: rgba(255, 255, 255, 0.6);
   
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  line-height: 1.6; /* Aumentado para melhor leitura */
+  line-height: 1.6;
   font-weight: 400;
   color-scheme: dark;
   color: var(--text-main);
@@ -17,6 +17,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 
 body {
   margin: 0;
@@ -164,6 +165,18 @@ input::placeholder {
 input:hover:not(:focus) {
   border-color: rgba(255, 255, 255, 0.2);
   background-color: rgba(255, 255, 255, 0.05);
+}
+
+button.favorito {
+  all: unset !important;       /* reseta tudo */
+  cursor: pointer !important;  /* ainda clicável */
+  color: #fff675 !important;   /* amarelo sempre */
+  background: none !important; /* sem background */
+  padding: 0 !important;       /* sem padding extra */
+  border: none !important;     /* sem borda */
+  box-shadow: none !important; /* sem sombra */
+  font-size: inherit !important;
+  font-family: inherit !important;
 }
 
 /* Classe para containers de texto ou elementos individuais */
